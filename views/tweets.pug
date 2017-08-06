@@ -1,0 +1,19 @@
+extends layout.pug
+block content
+  if messages
+    ul.list-group
+        each message in messages
+          li(class=['row','list-group-item' ])
+            .media
+              .media-left
+                a(href=message.profile_link,target="_blank" rel="noopener noreferrer")
+                  img(src=message.profile_image_url,class='media-object', alt=message.user)
+              .media-body
+                .media-heading 
+                  a(href=message.profile_link, target="_blank" rel="noopener noreferrer")
+                    p.user=message.user 
+                      span.screen-name='@'+message.screen_name
+                  a(href=message.tweet_link,target="_blank" rel="noopener noreferrer")
+                    p.message=message.text
+
+      
