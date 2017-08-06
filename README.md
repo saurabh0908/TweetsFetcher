@@ -1,6 +1,5 @@
 # TweetsFetcher
-Simple node based tweets fetcher application - retrieves latest 50 tweets based on query search. 
-## This app does oauth2 authentication and uses express framework for node, pug for templating and mocha for unit testing.
+Simple node based tweets fetcher application - retrieves latest 50 tweets based on query search.This app does oauth2 authentication and uses express framework for node, pug for templating and mocha for unit testing.
 
 ### Install npm packages:
 `npm install`
