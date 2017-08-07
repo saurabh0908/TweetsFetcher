@@ -127,7 +127,7 @@ describe('TweetsFetcher', function() {
 
       let expected = [
         {
-          created_at: "Mon Sep 24 03:35:21 +0000 2012",
+          created_at: "5 years ago",
           text: "loved this week GOT episode",
           user: "Saurabh Shrivastava",
           screen_name: "saurabh0908",
@@ -136,7 +136,7 @@ describe('TweetsFetcher', function() {
           tweet_link:"https://twitter.com/saurabh0908/status/250075927172759552"
         },
         {
-          created_at: "Mon Sep 25 03:35:21 +0000 2012",
+          created_at: "5 years ago",
           text: "boring GOT episode",
           user: "Shuchi Muley ",
           screen_name: "shuchimuley",
@@ -176,7 +176,7 @@ describe('TweetsFetcher', function() {
       };
 
       let expected = {
-        created_at: "Mon Sep 24 03:35:21 +0000 2012",
+        created_at: "5 years ago",
         text: "loved this week GOT episode",
         user: "Saurabh Shrivastava",
         screen_name: "saurabh0908",
@@ -190,4 +190,11 @@ describe('TweetsFetcher', function() {
 
     })
   });
+  describe("#dateToMoment()", function() {
+    it("should return moment formatted date of input date", function() {
+      let input = "Mon Sep 24 03:35:21 +0000 2012",
+      expected = "5 years ago";
+      expect(TweetsFetcher.dateToMoment(input)).to.equal(expected);
+    })
+  })
 });

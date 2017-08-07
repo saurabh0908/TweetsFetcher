@@ -21,7 +21,10 @@ a:hover,a:active,a:visited,a:link {
   padding: 2px;
 }
 
-
+.date {
+  color: steelblue;
+  font-size: 14px;
+}
 
 .screen-name {
   color: darkgray;

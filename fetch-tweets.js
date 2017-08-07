@@ -1,6 +1,6 @@
 const key = 'YOUR TWITTER KEY';
 const secret = 'YOUR TWITTER SECRET';
-
+const moment = require('moment');
 TweetsFetcher = {
 
   queryParamToURL: function(param) {
@@ -52,7 +52,7 @@ TweetsFetcher = {
     // }
 
     token = "AAAAAAAAAAAAAAAAAAAAAFxlgQAAAAAAsiNZMOUipZCfnikjV688HiCzYcI%3DskknzETemjQZmw5SrohvkYItwoqRN0ERHs3YvvulSJrQFtqyPI";
-    
+
     let options = {
       "method": "GET",
       url: url,
@@ -80,7 +80,7 @@ TweetsFetcher = {
 
   transformTwitterObject: function(tweetObject) {
     return {
-      created_at: tweetObject.created_at,
+      created_at: TweetsFetcher.dateToMoment(tweetObject.created_at),
       text: tweetObject.text,
       user: tweetObject.user.name,
       screen_name: tweetObject.user.screen_name,
@@ -88,6 +88,10 @@ TweetsFetcher = {
       profile_link: "https://twitter.com/"+ tweetObject.user.screen_name,
       tweet_link:"https://twitter.com/"+tweetObject.user.screen_name+"/status/"+tweetObject.id_str
     }
+  },
+
+  dateToMoment: function(stringDate) {
+    return moment(Date.parse(stringDate)).fromNow();
   }
 }
 
